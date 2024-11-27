@@ -3,8 +3,8 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Courier New', monospace;
-    background: #0d0d0d;
-    color: #00ff00;
+    background: #000000; /* Qora rang orqa fon */
+    color: white;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -12,16 +12,22 @@ body {
     overflow: hidden;
 }
 
+/* Kontent va tugmalarni markazga joylashtirish */
 .container {
     text-align: center;
-    padding: 30px;
-    background: rgba(0, 0, 0, 0.8);
-    border-radius: 15px;
-    box-shadow: 0 0 20px rgba(0, 255, 0, 0.7);
-    width: 80%;
-    max-width: 600px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.7); /* Kengaytirilgan yarim shaffof qora fon */
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.5); /* Sariq-yashil rangdagi yumshoq soyalar */
+    width: 50%; /* Ramkani ixcham qilish */
+    max-width: 400px; /* Kichikroq hajm */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
+/* Title dizayni */
 .title {
     font-size: 2rem;
     margin-bottom: 20px;
@@ -30,90 +36,134 @@ body {
     animation: glitch 1.5s infinite;
 }
 
+/* Tugmalarni markazga joylashtirish va kengaytirish */
 .buttons {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 15px;
+    align-items: center;
 }
 
-/* Tugmalar umumiy dizayni */
+/* Tugma dizayni (animatsiya va ranglar) */
 .btn {
     font-size: 1.2rem;
-    padding: 15px 30px;
-    border: 2px solid #00ff00;
+    padding: 20px 40px; /* Kengroq tugma */
+    width: 100%; /* Tugmani butun kenglik bo'yicha kengaytirish */
+    border: 2px solid transparent;
     border-radius: 10px;
     cursor: pointer;
-    color: #00ff00;
+    color: white;
     text-transform: uppercase;
     background: transparent;
     position: relative;
     overflow: hidden;
     z-index: 1;
-    animation: neon-glow 1.5s infinite alternate;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    animation: none; /* Umumiy animatsiyani olib tashlash */
 }
 
-/* Tugma ustida chiroyli skan qilish effektini qo'shish */
-.btn::before {
-    content: "";
-    position: absolute;
-    top: -100%;
-    left: 0;
-    width: 100%;
-    height: 200%;
-    background: linear-gradient(transparent, rgba(0, 255, 0, 0.3), transparent);
-    transform: skewY(-10deg);
-    animation: scan 3s linear infinite;
-    z-index: -1;
-}
-
-/* Ijtimoiy tarmoqlar uchun alohida ranglar */
+/* Tugmalar uchun o'z ranglari va animatsiyalar */
 .telegram {
     background-color: #0088cc;
     box-shadow: 0 0 10px #0088cc, 0 0 20px #0088cc;
+    animation: neon-glow-telegram 1.5s infinite alternate;
 }
 
 .instagram {
     background: linear-gradient(45deg, #c13584, #fd1d1d, #fcb045);
     box-shadow: 0 0 10px #c13584, 0 0 20px #c13584;
+    animation: neon-glow-instagram 1.5s infinite alternate;
 }
 
 .tiktok {
     background-color: #000000;
     box-shadow: 0 0 10px #69c9d0, 0 0 20px #ee1d52;
+    animation: neon-glow-tiktok 1.5s infinite alternate;
 }
 
 .youtube {
     background-color: #ff0000;
     box-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000;
+    animation: neon-glow-youtube 1.5s infinite alternate;
+}
+
+.twitter {
+    background-color: #1da1f2;
+    box-shadow: 0 0 10px #1da1f2, 0 0 20px #1da1f2;
+    animation: neon-glow-twitter 1.5s infinite alternate;
+}
+
+.facebook {
+    background-color: #1877f2;
+    box-shadow: 0 0 10px #1877f2, 0 0 20px #1877f2;
+    animation: neon-glow-facebook 1.5s infinite alternate;
 }
 
 /* Tugmaning ustida hover effektlari */
 .btn:hover {
-    background: #00ff00;
-    color: black;
     transform: scale(1.1);
-    transition: transform 0.3s;
+    transition: transform 0.3s ease;
 }
 
 /* Animatsiyalar */
-@keyframes scan {
+@keyframes neon-glow-telegram {
     0% {
-        top: -100%;
+        box-shadow: 0 0 10px #0088cc, 0 0 20px #0088cc;
     }
     100% {
-        top: 100%;
+        box-shadow: 0 0 20px #0088cc, 0 0 30px #0088cc;
     }
 }
 
-@keyframes neon-glow {
+@keyframes neon-glow-instagram {
     0% {
-        box-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00;
+        box-shadow: 0 0 10px #c13584, 0 0 20px #c13584;
     }
     100% {
-        box-shadow: 0 0 20px #00ff00, 0 0 30px #00ff00, 0 0 40px #00ff00;
+        box-shadow: 0 0 20px #c13584, 0 0 30px #c13584;
     }
 }
 
+@keyframes neon-glow-tiktok {
+    0% {
+        box-shadow: 0 0 10px #69c9d0, 0 0 20px #ee1d52;
+    }
+    100% {
+        box-shadow: 0 0 20px #69c9d0, 0 0 30px #ee1d52;
+    }
+}
+
+@keyframes neon-glow-youtube {
+    0% {
+        box-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000;
+    }
+    100% {
+        box-shadow: 0 0 20px #ff0000, 0 0 30px #ff0000;
+    }
+}
+
+@keyframes neon-glow-twitter {
+    0% {
+        box-shadow: 0 0 10px #1da1f2, 0 0 20px #1da1f2;
+    }
+    100% {
+        box-shadow: 0 0 20px #1da1f2, 0 0 30px #1da1f2;
+    }
+}
+
+@keyframes neon-glow-facebook {
+    0% {
+        box-shadow: 0 0 10px #1877f2, 0 0 20px #1877f2;
+    }
+    100% {
+        box-shadow: 0 0 20px #1877f2, 0 0 30px #1877f2;
+    }
+}
+
+/* Glitch animatsiya */
 @keyframes glitch {
     0% {
         text-shadow: 2px 0 red, -2px 0 blue;
