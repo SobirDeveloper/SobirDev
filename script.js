@@ -15,7 +15,6 @@ document.getElementById('youtubeBtn').addEventListener('click', () => {
     window.open('https://youtube.com/@sobirdev?si=RYWlvy0Y9MwUPvoh', '_blank');
 });
 
-// Yangi tarmoqlar: Twitter va Facebook
 document.getElementById('twitterBtn').addEventListener('click', () => {
     window.open('https://x.com/Sobiroff_62oo?t=ccD8SLVcVBEGbkkUDREQzw&s=09', '_blank');
 });
@@ -23,14 +22,22 @@ document.getElementById('twitterBtn').addEventListener('click', () => {
 document.getElementById('facebookBtn').addEventListener('click', () => {
     window.open('https://www.facebook.com/profile.php?id=100081678453089&mibextid=kFxxJD', '_blank');
 });
-// Ko'rishlar sonini yangilash
-let viewCount = 0;
-const viewCountElement = document.getElementById('viewCount');
 
-function updateViewCount() {
-    viewCount += 1;
-    viewCountElement.textContent = viewCount;
-}
 
-// Har safar sahifa yuklanganda ko'rishlar sonini oshirish
-updateViewCount();
+document.addEventListener('DOMContentLoaded', () => {
+    // Ko'rishlar sonini yangilash va ko'rsatish
+    const viewCountElement = document.getElementById('viewCount');
+
+    // AJAX so'rovi yuborish
+    function updateViewCount() {
+        fetch('views.php') // PHP faylini chaqirish
+            .then(response => response.json()) // JSON sifatida javob olish
+            .then(data => {
+                viewCountElement.textContent = data.views; // Ko'rishlar sonini yangilash
+            })
+            .catch(error => console.error('Xatolik:', error));
+    }
+
+    // Sahifa yuklanganda ko'rishlar sonini yangilash
+    updateViewCount();
+});

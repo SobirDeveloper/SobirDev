@@ -11,7 +11,7 @@ body {
     height: 100vh;
     overflow: hidden;
 }
-/* Ko'z ikonkasi uchun stil */
+/* Ko'z ikonkasi va ko'rishlar soni */
 .views {
     position: absolute;
     top: 20px;
@@ -27,7 +27,6 @@ body {
     box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
 }
 
-/* Ko'z ikonkasi va sonlar */
 .views i {
     color: #00ff00; /* Neon-yashil rang */
 }
@@ -36,7 +35,6 @@ body {
     font-family: 'Courier New', monospace;
     font-size: 1.2rem;
 }
-
 
 /* Kontent va tugmalarni markazga joylashtirish */
 .container {
