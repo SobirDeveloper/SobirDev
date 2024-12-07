@@ -23,3 +23,14 @@ document.getElementById('twitterBtn').addEventListener('click', () => {
 document.getElementById('facebookBtn').addEventListener('click', () => {
     window.open('https://www.facebook.com/profile.php?id=100081678453089&mibextid=kFxxJD', '_blank');
 });
+// Ko'rishlar sonini yangilash
+let viewCount = 0;
+const viewCountElement = document.getElementById('viewCount');
+
+function updateViewCount() {
+    viewCount += 1;
+    viewCountElement.textContent = viewCount;
+}
+
+// Har safar sahifa yuklanganda ko'rishlar sonini oshirish
+updateViewCount();
