@@ -1,178 +1,125 @@
+
 /* Umumiy sozlamalar */
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Courier New', monospace;
-    background: #000000; /* Qora rang orqa fon */
-    color: white;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(120deg, #1a1a2e, #16213e, #0f3460);
+    background-size: 300% 300%;
+    animation: bgAnimation 10s ease infinite;
+    color: #ffffff;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     overflow: hidden;
-}
-
-/* Kontent va tugmalarni markazga joylashtirish */
-.container {
+  }
+  
+  /* Orqa fon animatsiyasi */
+  @keyframes bgAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  /* Tortburchak oyna */
+  .container {
     text-align: center;
-    padding: 20px;
-    background: rgba(0, 0, 0, 0.7); /* Kengaytirilgan yarim shaffof qora fon */
+    background: rgba(255, 255, 255, 0.1);
     border-radius: 15px;
-    box-shadow: 0 0 20px rgba(0, 255, 0, 0.5); /* Sariq-yashil rangdagi yumshoq soyalar */
-    width: 80%; /* Kengroq ramka */
-    max-width: 600px; /* Maksimal kenglik */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Title dizayni */
-.title {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    animation: glitch 1.5s infinite;
-}
-
-/* Tugmalarni markazga joylashtirish va kengaytirish */
-.buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    align-items: center;
-    width: 100%; /* Tugmalarni ramka kengligiga moslashtirish */
-}
-
-/* Tugma dizayni (animatsiya va ranglar) */
-.btn {
-    font-size: 1.2rem;
-    padding: 20px 40px; /* Kengroq tugma */
-    width: 80%; /* Tugmaning kengligini ramkaga moslashtirish */
-    border: 2px solid transparent;
-    border-radius: 10px;
-    cursor: pointer;
-    color: white;
-    text-transform: uppercase;
-    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5), inset 0 0 15px rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    width: 90%;
+    max-width: 500px;
     position: relative;
+    transition: transform 0.4s, box-shadow 0.4s;
     overflow: hidden;
-    z-index: 1;
+  }
+  
+  .container:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 12px 30px rgba(255, 255, 255, 0.4);
+  }
+  
+  /* ID karta effekti */
+  .container::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    width: 150%;
+    height: 150%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.2), transparent);
+    transform: scale(1);
+    transition: transform 0.4s ease-in-out;
+    z-index: -1;
+  }
+  
+  .container:hover::before {
+    transform: scale(1.2);
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.3), transparent);
+  }
+  
+  /* Profil rasmi */
+  .profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 4px solid #ffffff;
+    margin-bottom: 10px;
+  }
+  
+  /* Yozuvlar */
+  .profile-name {
+    font-size: 1.5rem;
+    margin: 0;
+    color: #ffffff;
+  }
+  
+  .profile-username {
+    font-size: 1rem;
+    color: #bbbbbb;
+  }
+  
+  /* Tugmalar */
+  .social-buttons {
     display: flex;
-    align-items: center;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
-    animation: none; /* Umumiy animatsiyani olib tashlash */
-}
-
-/* Tugmalar uchun o'z ranglari va animatsiyalar */
-.telegram {
-    background-color: #0088cc;
-    box-shadow: 0 0 10px #0088cc, 0 0 20px #0088cc;
-    animation: neon-glow-telegram 1.5s infinite alternate;
-}
-
-.instagram {
-    background: linear-gradient(45deg, #c13584, #fd1d1d, #fcb045);
-    box-shadow: 0 0 10px #c13584, 0 0 20px #c13584;
-    animation: neon-glow-instagram 1.5s infinite alternate;
-}
-
-.tiktok {
-    background-color: #000000;
-    box-shadow: 0 0 10px #69c9d0, 0 0 20px #ee1d52;
-    animation: neon-glow-tiktok 1.5s infinite alternate;
-}
-
-.youtube {
-    background-color: #ff0000;
-    box-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000;
-    animation: neon-glow-youtube 1.5s infinite alternate;
-}
-
-.twitter {
-    background-color: #1da1f2;
-    box-shadow: 0 0 10px #1da1f2, 0 0 20px #1da1f2;
-    animation: neon-glow-twitter 1.5s infinite alternate;
-}
-
-.facebook {
-    background-color: #1877f2;
-    box-shadow: 0 0 10px #1877f2, 0 0 20px #1877f2;
-    animation: neon-glow-facebook 1.5s infinite alternate;
-}
-
-/* Tugmaning ustida hover effektlari */
-.btn:hover {
+    margin-top: 20px;
+  }
+  
+  .btn {
+    font-size: 0.9rem;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .btn.youtube { background: #ff0000; }
+  .btn.facebook { background: #1877f2; }
+  .btn.tiktok { background: #000000; }
+  .btn.twitter { background: #1da1f2; }
+  .btn.instagram { background: linear-gradient(45deg, #fd1d1d, #833ab4); }
+  .btn.telegram { background: #0088cc; }
+  
+  .btn:hover {
     transform: scale(1.1);
-    transition: transform 0.3s ease;
-}
-
-/* Animatsiyalar */
-@keyframes neon-glow-telegram {
-    0% {
-        box-shadow: 0 0 10px #0088cc, 0 0 20px #0088cc;
-    }
-    100% {
-        box-shadow: 0 0 20px #0088cc, 0 0 30px #0088cc;
-    }
-}
-
-@keyframes neon-glow-instagram {
-    0% {
-        box-shadow: 0 0 10px #c13584, 0 0 20px #c13584;
-    }
-    100% {
-        box-shadow: 0 0 20px #c13584, 0 0 30px #c13584;
-    }
-}
-
-@keyframes neon-glow-tiktok {
-    0% {
-        box-shadow: 0 0 10px #69c9d0, 0 0 20px #ee1d52;
-    }
-    100% {
-        box-shadow: 0 0 20px #69c9d0, 0 0 30px #ee1d52;
-    }
-}
-
-@keyframes neon-glow-youtube {
-    0% {
-        box-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000;
-    }
-    100% {
-        box-shadow: 0 0 20px #ff0000, 0 0 30px #ff0000;
-    }
-}
-
-@keyframes neon-glow-twitter {
-    0% {
-        box-shadow: 0 0 10px #1da1f2, 0 0 20px #1da1f2;
-    }
-    100% {
-        box-shadow: 0 0 20px #1da1f2, 0 0 30px #1da1f2;
-    }
-}
-
-@keyframes neon-glow-facebook {
-    0% {
-        box-shadow: 0 0 10px #1877f2, 0 0 20px #1877f2;
-    }
-    100% {
-        box-shadow: 0 0 20px #1877f2, 0 0 30px #1877f2;
-    }
-}
-
-/* Glitch animatsiya */
-@keyframes glitch {
-    0% {
-        text-shadow: 2px 0 red, -2px 0 blue;
-    }
-    50% {
-        text-shadow: -2px 0 red, 2px 0 blue;
-    }
-    100% {
-        text-shadow: 2px 0 red, -2px 0 blue;
-    }
-}
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+  }
+  
+  /* Ko'rishlar qismi */
+  .views {
+    margin-top: 20px;
+    font-size: 1rem;
+    color: #ffffff;
+  }
+  

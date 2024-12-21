@@ -1,29 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ijtimoiy Tarmoqlar</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- Font Awesome kutubxonasini qo'shish -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bizni Kuzating</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-     <!-- Ko'z ikonkasi va ko'rishlar soni -->
-     <div class="views">
-        <i class="fas fa-eye"></i>
-        <span id="viewCount">0</span>
+  <div class="container">
+    <div class="profile">
+      <img src="photo_2024-07-17_20-06-13.jpg" alt="Profile Image" class="profile-img">
+      <h2 class="profile-name">Sobirov Sobirjon</h2>
+      <p class="profile-username">Ijtimoiy Tarmoqlar</p>
     </div>
-    <div class="background"></div>
-    <div class="container">
-        <h1 class="title">Bizning Ijtimoiy Tarmoqlar</h1>
-        <div class="buttons">
-            <button class="btn telegram" id="telegramBtn"><i class="fab fa-telegram-plane"></i> Telegram</button>
-            <button class="btn instagram" id="instagramBtn"><i class="fab fa-instagram"></i> Instagram</button>
-            <button class="btn tiktok" id="tiktokBtn"><i class="fab fa-tiktok"></i> TikTok</button>
-            <button class="btn youtube" id="youtubeBtn"><i class="fab fa-youtube"></i> YouTube</button>
-            <!-- Yangi tarmoqlar: Twitter va Facebook -->
-            <button class="btn twitter" id="twitterBtn"><i class="fab fa-twitter"></i> Twitter</button>
-            <button class="btn facebook" id="facebookBtn"><i class="fab fa-facebook"></i> Facebook</button>
-        </div>
+    <div class="social-buttons">
+      <button class="btn youtube">
+        <i class="fab fa-youtube"></i> YouTube
+      </button>
+      <button class="btn facebook">
+        <i class="fab fa-facebook"></i> Facebook
+      </button>
+      <button class="btn tiktok">
+        <i class="fab fa-tiktok"></i> TikTok
+      </button>
+      <button class="btn twitter">
+        <i class="fab fa-twitter"></i> Twitter
+      </button>
+      <button class="btn instagram">
+        <i class="fab fa-instagram"></i> Instagram
+      </button>
+      <button class="btn telegram">
+        <i class="fab fa-telegram"></i> Telegram
+      </button>
     </div>
-    <script src="script.js"></script>
+    <div class="views">
+      👁 Ko'rishlar: <span id="viewCount">0</span>
+    </div>
+  </div>
+  <script src="script.js"></script>
 </body>
+</html>
