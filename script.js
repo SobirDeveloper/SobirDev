@@ -1,4 +1,4 @@
-// Tugmalar uchun havolalar
+// Ijtimoiy tarmoqlar tugmalari uchun funksionallik
 document.getElementById('telegramBtn').addEventListener('click', () => {
     window.open('https://t.me/sobirdev', '_blank');
 });
@@ -23,21 +23,16 @@ document.getElementById('facebookBtn').addEventListener('click', () => {
     window.open('https://www.facebook.com/profile.php?id=100081678453089&mibextid=kFxxJD', '_blank');
 });
 
+// Ko'rishlar sonini yangilash va saqlash
+let viewCount = localStorage.getItem('viewCount') || 0; // Oldin saqlangan qiymatni olish yoki 0 dan boshlash
+const viewCountElement = document.getElementById('viewCount');
 
-document.addEventListener('DOMContentLoaded', () => {
-    // Ko'rishlar sonini yangilash va ko'rsatish
-    const viewCountElement = document.getElementById('viewCount');
+// Ko'rishlar sonini yangilash funksiyasi
+function updateViewCount() {
+    viewCount = parseInt(viewCount) + 1; // Ko'rishlarni oshirish
+    localStorage.setItem('viewCount', viewCount); // Ma'lumotni saqlash
+    viewCountElement.textContent = viewCount; // Ko'rinishni yangilash
+}
 
-    // AJAX so'rovi yuborish
-    function updateViewCount() {
-        fetch('views.php') // PHP faylini chaqirish
-            .then(response => response.json()) // JSON sifatida javob olish
-            .then(data => {
-                viewCountElement.textContent = data.views; // Ko'rishlar sonini yangilash
-            })
-            .catch(error => console.error('Xatolik:', error));
-    }
-
-    // Sahifa yuklanganda ko'rishlar sonini yangilash
-    updateViewCount();
-});
+// Sahifa yuklanganda ko'rishlar sonini yangilash
+updateViewCount();
